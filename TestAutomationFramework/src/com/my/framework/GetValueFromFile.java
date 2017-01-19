@@ -5,10 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class TestCreateTables {
-	
+public class GetValueFromFile {
 	private String getValueFromFile() {
-		String fileName = "/Users/dvitalii/Documents/Eclipse/workspace/TestAutomationFramework/configuration/scripts";
+		String fileName = "/Users/dvitalii/git/Automation/TestAutomationFramework/configuration/scripts";
 
 		String value = "";
 		String line = "";
@@ -34,7 +33,8 @@ public class TestCreateTables {
 	
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		GetValueFromFile myInstance = new GetValueFromFile();
+		myInstance.getValueFromFile();
 
 	}
 
