@@ -25,40 +25,40 @@ public class TestGitInfoFromFile {
 	private String password = "root";
 	
 	
-	public void createTablesInDatabaseAndInsertData() {
-
-		String value = "";
-		String line = "";
-		try {
-			FileInputStream fstream = new FileInputStream(pathToScripts);
-			DataInputStream in = new DataInputStream(fstream);
-			BufferedReader br = new BufferedReader(new InputStreamReader(in));
-
-			while ((value = br.readLine()) != null) {
-
-				try {
-					Connection myConn = DriverManager.getConnection(databaseURL, username, password);
-					Statement myStat = myConn.createStatement();
-
-					String myQuery = value;
-
-					myStat.executeUpdate(myQuery);
-					System.out.println("Table created sucessfully");
-
-				} catch (Exception exc) {
-					System.out.println("Your table already exists");
-				}
-
-			}
-		} catch (FileNotFoundException ex) {
-			System.out.println("Unable to open file '" + pathToScripts + "'");
-
-		} catch (IOException ex) {
-			System.out.println("Error reading file '" + pathToScripts + "'");
-
-		}
-
-	}
+//	public void createTablesInDatabaseAndInsertData() {
+//
+//		String value = "";
+//		String line = "";
+//		try {
+//			FileInputStream fstream = new FileInputStream(pathToScripts);
+//			DataInputStream in = new DataInputStream(fstream);
+//			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+//
+//			while ((value = br.readLine()) != null) {
+//
+//				try {
+//					Connection myConn = DriverManager.getConnection(databaseURL, username, password);
+//					Statement myStat = myConn.createStatement();
+//
+//					String myQuery = value;
+//
+//					myStat.executeUpdate(myQuery);
+//					System.out.println("Table created sucessfully");
+//
+//				} catch (Exception exc) {
+//					System.out.println("Your table already exists");
+//				}
+//
+//			}
+//		} catch (FileNotFoundException ex) {
+//			System.out.println("Unable to open file '" + pathToScripts + "'");
+//
+//		} catch (IOException ex) {
+//			System.out.println("Error reading file '" + pathToScripts + "'");
+//
+//		}
+//
+//	}
 
 	public void createTestData() {
 
