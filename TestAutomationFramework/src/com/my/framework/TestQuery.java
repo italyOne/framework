@@ -11,31 +11,38 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class TestQuery {
-	private String databaseDriver = "com.mysql.jdbc.Driver";
-	private String databaseURL = "jdbc:mysql://127.0.0.1:3306/";
-	private String username = "root";
-	private String password = "root";
+	
 	
 	
 
 	public static void main(String[] args) {
+		
 		try {
-            String url = "jdbc:mysql://127.0.0.1:3306/";
-            Connection conn = DriverManager.getConnection(url,"root","root");
+           
+            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/","root","root");
             Statement stmt = conn.createStatement();
             ResultSet rs;
  
-            rs = stmt.executeQuery("SELECT * FROM sys.flights where flightNumber = 1001");
+            rs = stmt.executeQuery("select airlines.airline from sys.airlines "
+            		+ "inner join sys.flights on airlines.flightNumber = flights.flightNumber "
+            		+ "inner join sys.airoports on airoports.airport = flights.arrivalAirport "
+            		+ "where flights.arrivalAirport = 'Milan' or 'Helsinki' and airlines.webRegistration = 'yes';");
             while ( rs.next() ) {
-                int flightNumber = rs.getInt("flightNumber");
-                System.out.println(flightNumber);
+                String airline = rs.getString("airline");
+                System.out.println(airline);
             }
+            
+            
             conn.close();
         } catch (Exception e) {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
+		
 
 	}
+	
+	
+	
 
 }

@@ -59,7 +59,7 @@ if (keyWord.length()<line.length()) {
 
 	public void createEnvironment() {
 		Database myDatabase = new Database(databaseURL, username, password, pathToScripts);
-		myDatabase.createTablesInDatabaseAndInsertData();
+		//myDatabase.createTablesInDatabaseAndInsertData();
 		myDatabase.createTestData();
 		
 	}
