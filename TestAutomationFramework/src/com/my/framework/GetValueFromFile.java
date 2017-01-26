@@ -15,7 +15,7 @@ public class GetValueFromFile {
 			FileReader fileReader = new FileReader(fileName);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			while ((line = bufferedReader.readLine()) != null) 
-				System.out.println("Ok");
+				System.out.println(line);
 
 			
 			bufferedReader.close();
