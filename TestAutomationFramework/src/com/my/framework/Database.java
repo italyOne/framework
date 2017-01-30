@@ -68,6 +68,8 @@ public class Database {
 			Statement myStat = myConn.createStatement();
 
 			String query = "SELECT * FROM sys.flights";
+			
+			
 			Statement st = myConn.createStatement();
 			ResultSet rs = st.executeQuery(query);
 			System.out.println(prepareTestData(rs));
@@ -81,15 +83,31 @@ public class Database {
 	private String prepareTestData(ResultSet rs) throws SQLException {
 		String expectedResult = "";
 		while (rs.next()) {
-			int id = rs.getInt("departureAiroport");
-			String firstName = rs.getString("departureAiroport");
+			
+			 ResultSetMetaData rsmd = rs.getMetaData();
+			int columnCount = rsmd.getColumnCount();
+			String []columnName = new String[columnCount];
+			for (int i = 1; i <= columnCount; i++ ) {
+			 columnName[i] = rsmd.getColumnName(i);
+			 ;
 
-			// print the results
-			expectedResult += id + ";" + firstName + ";";
+			  expectedResult += rs.getString(columnName[i]) + ";";
+			  
+			}
+			expectedResult+="\n";
+			 
+
+			
 		}
 
 		return expectedResult;
 
+	}
+	public static void main(String [] args){
+		Database myInstance = new Database("jdbc:mysql://127.0.0.1:3306/", "root", "root", "/Users/dvitalii/Documents/Eclipse/workspace/TestAutomationFramework/configuration/scripts");
+		myInstance.createTestData();
+		
+		
 	}
 	
 

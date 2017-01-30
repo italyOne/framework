@@ -7,7 +7,7 @@ public class Runner {
 		myInstance.initialiseEnvironmentVariables();
 		
 		myInstance.createEnvironment();
-		
+	
 		//myInstance.runTests();
 	}
 }

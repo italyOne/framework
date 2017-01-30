@@ -8,7 +8,7 @@ import java.io.IOException;
 public class TestEnvironment {
 	
 
-	public static final String DATA_FILE = "/Users/dvitalii/Documents/Eclipse/workspace/TestAutomationFramework/configuration/framework.ini";
+	public static final String DATA_FILE = "/Users/dvitalii/git/framework/TestAutomationFramework/configuration/framework.ini";
 	private String pathToExcelFile = "";
 	private String pathToScripts = "";
 	private String reportingFolder = "";
@@ -59,7 +59,7 @@ if (keyWord.length()<line.length()) {
 
 	public void createEnvironment() {
 		Database myDatabase = new Database(databaseURL, username, password, pathToScripts);
-		//myDatabase.createTablesInDatabaseAndInsertData();
+		myDatabase.createTablesInDatabaseAndInsertData();
 		myDatabase.createTestData();
 		
 	}

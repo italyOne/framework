@@ -23,7 +23,7 @@ public class ExportQueryToExcel {
 	            HSSFWorkbook workbook = new HSSFWorkbook();
 	            HSSFSheet worksheet = workbook.createSheet("Sheet1");
 	            Row row1 = worksheet.createRow((short)0);
-	            row1.createCell(0).setCellValue("airline");
+//	            row1.createCell(0).setCellValue("airline");
 //	            row1.createCell(1).setCellValue("arrivalAirport");
 //	            row1.createCell(2).setCellValue("stopsNumber");
 //	            row1.createCell(3).setCellValue("avarageTicketPrice");
@@ -36,7 +36,7 @@ public class ExportQueryToExcel {
 	            while(rs.next()){
 	                int a = rs.getRow();
 	                row2 = worksheet.createRow((short)a);
-	                row2.createCell(0).setCellValue(rs.getString(1));
+//	                row2.createCell(0).setCellValue(rs.getString(1));
 	                //row2.createCell(1).setCellValue(rs.getString(2));
 //	                row2.createCell(2).setCellValue(rs.getInt(3));
 //	                row2.createCell(3).setCellValue(rs.getInt(4));
